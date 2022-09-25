@@ -1,7 +1,6 @@
 import models.PizzaMenu;
-import models.PizzaMenuItems;
+import models.PizzaMenuItem;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,64 +13,79 @@ public class Main {
 
         int num = 10;
         int num2 = 15;
-        int num3 = num; //int a primitivni datove typy vytvori novou vec
+        int num3 = num;
 
-        if(num == num2) {
-            System.out.println("same");
+        if(num == num2){
+            //System.out.println("same");
         }
-        else {
-            System.out.println("not the same");
+        else{
+            //System.out.println("not same");
         }
 
         boolean b = num == num2;
 
         String text = "aaa";
-
         String text2 = "aaa";
 
-        if (text.equals(text2)){
-            System.out.println("text same");
+        if(text.equals(text2)){
+            //System.out.println("text same");
         }
 
-        PizzaMenuItems pizzaItem1 = new PizzaMenuItems("Hawai", 180);
-        PizzaMenuItems pizzaItem2 = new PizzaMenuItems("Hawai", 180);
-        PizzaMenuItems pizzaItem3 = pizzaItem1;
+        PizzaMenuItem pizzaItem1 = new PizzaMenuItem("Hawai", 180);
+        PizzaMenuItem pizzaItem2 = new PizzaMenuItem("Hawai", 180);
+        PizzaMenuItem pizzaItem3 = pizzaItem1;
 
-        if (pizzaItem1 == pizzaItem2) {
-            System.out.println("1: pizzas are same");
+        if(pizzaItem1 == pizzaItem2){
+            System.out.println("1: pizza same");
         }
-
-        if (pizzaItem1 == pizzaItem3) {
-            System.out.println("2: pizzas are same");
+        if(pizzaItem1 == pizzaItem3){
+            System.out.println("2: pizza same");
         }
 
         pizzaItem3.setPrice(200);
+
         System.out.println("3: "+pizzaItem1.getPrice());
+
 
         int[] intArr = new int[] {1,2,3,4,5};
 
-        PizzaMenuItems[] pizzaArr = new PizzaMenuItems[]{
-                new PizzaMenuItems("Hawai",180);
-                new PizzaMenuItems("Polo",190);
+        PizzaMenuItem[] pizzaArr = new PizzaMenuItem[]{
+                new PizzaMenuItem("Hawai", 180),
+                new PizzaMenuItem("Polo", 190)
         };
 
-        List<PizzaMenuItems> pizzaList = new ArrayList<>();
-        pizzaList.add(new PizzaMenuItems("Hawai",180));
-        pizzaList.add(new PizzaMenuItems("Polo",190));
+        List<PizzaMenuItem> pizzaList = new ArrayList<>();
+        pizzaList.add(new PizzaMenuItem("Hawai", 180));
+        pizzaList.add(new PizzaMenuItem("Polo", 190));
 
         for (int i = 0; i < pizzaList.size(); i++) {
             System.out.println(pizzaList.get(i));
         }
 
-        for (PizzaMenuItems pizza:
-             pizzaList) {
+        for (PizzaMenuItem pizza :
+                pizzaList) {
             System.out.println(pizza.toString());
         }
 
 
         PizzaMenu menu1 = new PizzaMenu();
-        for (int i = 0; i <= 5 ; i++) {
-            menu1.addItem((new PizzaMenuItems("Pizza", 150 + (i*10))));
+        for (int i = 1; i <= 5; i++) {
+            menu1.addItem(new PizzaMenuItem("Pizza "+i, 150 + (i*10)));
+        }
+
+        for (PizzaMenuItem pizza :
+                menu1.getMenuItems()) {
+            System.out.println(pizza);
+        }
+        System.out.println("Last update: " + menu1.getLastUpdate());
+
+        PizzaMenu menu2 = new PizzaMenu();
+        for (int i = 1; i <= 5; i++) {
+            menu2.addItem(new PizzaMenuItem("Pizza "+i, 150 + (i*10)));
+        }
+
+        if(menu1.equals(menu2)){
+            System.out.println("menu match");
         }
 
     }
