@@ -1,7 +1,6 @@
 package models;
 
 public class Singleton {
-
     private static String connection;
 
     public String getConnection(){

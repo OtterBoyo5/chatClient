@@ -1,4 +1,3 @@
-import com.sun.security.jgss.GSSUtil;
 import models.*;
 import models.dataSaver.DataSaver;
 import models.dataSaver.FileDataSaver;
@@ -16,9 +15,9 @@ public class Main {
         exampleClass.publicMethod();
         System.out.println(exampleClass.publicNumber);
 
-        System.out.println(MyMatchClass.pi);
+        System.out.println(MyMathClass.pi);
 
-        int sum = MyMatchClass.sum(1,2);
+        int sum = MyMathClass.sum(10,20);
 
         Car skodaFabia = new Car("Skoda","Fabia");
 
@@ -30,8 +29,8 @@ public class Main {
         Pair<Integer, Car> pairCar = new Pair<>(1, skodaFabia);
 
         Pair<String, String> pairString = new Pair<>("key1","key2");
-
         Box<Pair<String, String>> boxOfPair = new Box<>(pairString); //vnorene Pair v Boxu skrze genericke tridy
+
 
         DataSaver<Car> dataSaver = new FileDataSaver<>(); //do DataSaver dam filedatasaver
 
